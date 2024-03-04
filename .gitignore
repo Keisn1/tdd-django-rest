@@ -1,3 +1,4 @@
 /poetry.lock
 *.pyc
 /.env
+/db.sqlite3
