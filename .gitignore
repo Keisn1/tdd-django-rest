@@ -4,3 +4,5 @@
 /db.sqlite3
 /app/db.sqlite3
 /app/poetry.lock
+/app/.venv/
+/app/movies_dev

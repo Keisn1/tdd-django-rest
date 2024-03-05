@@ -10,3 +10,19 @@ services:
       - 8009:8000
     env_file:
       - ./app/.env.dev
+    depends_on:
+      - movies-db
+
+  movies-db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=movies
+      - POSTGRES_PASSWORD=movies
+      - POSTGRES_DB=movies_dev
+
+volumes:
+  postgres_data:

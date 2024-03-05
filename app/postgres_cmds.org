@@ -1,0 +1,41 @@
+:PROPERTIES:
+:header-args:sql: :engine postgresql :dbuser movies :dbpassword movies :database movies_dev :dbport 5432 :dbhost localhost
+:END:
+#+title: Postgres Cmds
+
+* All databases
+#+begin_src sql
+\l
+#+end_src
+
+#+RESULTS:
+| List of databases |        |          |                 |            |            |            |           |                   |
+|-------------------+--------+----------+-----------------+------------+------------+------------+-----------+-------------------|
+| Name              | Owner  | Encoding | Locale Provider | Collate    | Ctype      | ICU Locale | ICU Rules | Access privileges |
+| movies_dev        | movies | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |                   |
+| postgres          | movies | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |                   |
+| template0         | movies | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/movies         |
+| movies=CTc/movies |        |          |                 |            |            |            |           |                   |
+| template1         | movies | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/movies         |
+| movies=CTc/movies |        |          |                 |            |            |            |           |                   |
+
+
+* schema movies_dev
+#+begin_src sql
+\dt
+#+end_src
+
+#+RESULTS:
+| List of relations |                                    |       |        |
+|-------------------+------------------------------------+-------+--------|
+| Schema            | Name                               | Type  | Owner  |
+| public            | auth_group                         | table | movies |
+| public            | auth_group_permissions             | table | movies |
+| public            | auth_permission                    | table | movies |
+| public            | django_admin_log                   | table | movies |
+| public            | django_content_type                | table | movies |
+| public            | django_migrations                  | table | movies |
+| public            | django_session                     | table | movies |
+| public            | movies_customuser                  | table | movies |
+| public            | movies_customuser_groups           | table | movies |
+| public            | movies_customuser_user_permissions | table | movies |
