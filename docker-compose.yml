@@ -1,11 +1,8 @@
-Version: "3.8"
+version: "3.8"
 
 services:
   movies:
-    build:
-      context: ./app
-      args:
-        PYTHON_VERSION: ${PYTHON_VERSION}
+    build: ./app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/

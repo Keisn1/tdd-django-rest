@@ -1,5 +1,5 @@
-ARG PYTHON_VERSION
-FROM python:3.11.5-slim-buster
+# pull official base image
+FROM python:3.11.2-slim-buster
 
 # set working directory
 WORKDIR /usr/src/app
@@ -10,9 +10,8 @@ ENV PYTHONUNBUFFERED 1
 
 # install dependencies
 RUN pip install --upgrade pip
-RUN curl -sSL https://install.python-poetry.org | python3 -
-COPY ./pyproject.toml .
-RUN poetry install
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
+# add app
 COPY . .
-    MAINTAINER  <kay@archlinux>
