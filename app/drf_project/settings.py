@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +27,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "foo")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEBUG", default=0))
+
+if not DEBUG:
+    REST_FRAMEWORK = {
+        "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
+    }
 
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
@@ -45,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # new
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -87,6 +95,11 @@ DATABASES = {
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+print(DATABASE_URL)
+db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500)
+DATABASES["default"].update(db_from_env)
 
 
 # Password validation
@@ -132,3 +145,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom User model
 AUTH_USER_MODEL = "movies.CustomUser"
+
+# Configure handling of static files
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# add compression support
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"

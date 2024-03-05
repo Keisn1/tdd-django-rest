@@ -37,3 +37,15 @@ PRAGMA table_info(movies_customuser);
 |   8 | is_staff     | bool         |       1 |            |  0 |
 |   9 | is_active    | bool         |       1 |            |  0 |
 |  10 | date_joined  | datetime     |       1 |            |  0 |
+* Movies
+** all movies
+#+begin_src sqlite
+Select * From movies_movie
+#+end_src
+
+#+RESULTS:
+| id | title                  | genre    | created_date               | updated_date               | year |
+|----+------------------------+----------+----------------------------+----------------------------+------|
+|  1 | Fargo                  | comedy   | 2021-01-07 14:07:13.540000 | 2021-01-07 14:07:13.540000 | 1996 |
+|  2 | No Country for Old Men | thriller | 2021-01-07 14:06:59.408000 | 2021-01-07 14:06:59.408000 | 2007 |
+|  3 | A Serious Man          | comedy   | 2021-01-07 14:06:51.542000 | 2021-01-07 14:06:51.542000 | 2009 |

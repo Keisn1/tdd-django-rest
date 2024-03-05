@@ -6,3 +6,5 @@
 /app/poetry.lock
 /app/.venv/
 /app/movies_dev
+*.venv*
+/app/.coverage

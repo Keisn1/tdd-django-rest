@@ -1,0 +1,26 @@
+# create a movie
+POST http://localhost:8009/api/movies/
+Content-Type: application/json
+{
+        "title": "Fargo",
+        "genre": "comedy",
+        "year": "1996"
+}
+
+# get all moview
+GET http://localhost:8009/api/movies/
+
+# get all moview
+GET http://localhost:8009/api/movies/
+
+# from the app
+GET https://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/
+
+# create a movie
+POST https://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/
+Content-Type: application/json
+{
+        "title": "Barton Fink",
+        "genre": "thriller",
+        "year": "1991"
+}
