@@ -9,12 +9,13 @@
 #+end_src
 
 #+RESULTS:
-| auth_group                          django_migrations                  |
+| auth_group                          django_session                     |
 |------------------------------------------------------------------------|
-| auth_group_permissions              django_session                     |
-| auth_permission                     movies_customuser                  |
-| django_admin_log                    movies_customuser_groups           |
-| django_content_type                 movies_customuser_user_permissions |
+| auth_group_permissions              movies_customuser                  |
+| auth_permission                     movies_customuser_groups           |
+| django_admin_log                    movies_customuser_user_permissions |
+| django_content_type                 movies_movie                       |
+| django_migrations                                                      |
 
 * Table info
 ** movies_customuser

@@ -39,3 +39,4 @@
 | public            | movies_customuser                  | table | movies |
 | public            | movies_customuser_groups           | table | movies |
 | public            | movies_customuser_user_permissions | table | movies |
+| public            | movies_movie                       | table | movies |
