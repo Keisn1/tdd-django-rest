@@ -7,10 +7,6 @@ from movies.serializers import MovieSerializer
 
 from .models import Movie
 
-# class MovieViewSet(ModelViewSet):
-#     serializer_class = MovieSerializer
-#     queryset = Movie.objects.all()
-
 
 class MovieList(APIView):
     def get(self, request, format=None):
