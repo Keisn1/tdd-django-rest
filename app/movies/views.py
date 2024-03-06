@@ -1,5 +1,5 @@
 from django.db.models import ObjectDoesNotExist
-from django.http import Http404, JsonResponse
+from django.http import Http404
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
 
@@ -39,7 +39,7 @@ class MovieDetail(APIView):
 
         movie.delete()
         return Response(
-            {"message": f"deleted successfully!"},
+            {"message": "deleted successfully!"},
             status=status.HTTP_204_NO_CONTENT,
         )
 
