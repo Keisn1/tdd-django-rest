@@ -18,8 +18,8 @@ class MovieList(APIView):
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
 
 
 class MovieDetail(APIView):
@@ -35,25 +35,19 @@ class MovieDetail(APIView):
         return Response(serializer.data)
 
     def delete(self, request, pk, format=None):
-        try:
-            movie = Movie.objects.get(pk=pk)
-            title = movie.title
-            movie.delete()
-            return JsonResponse(
-                {"message": f"{title} was deleted successfully!"},
-                status=status.HTTP_204_NO_CONTENT,
-            )
-        except Movie.DoesNotExist:
-            raise Http404
+        movie = self.get_object(pk=pk)
+
+        movie.delete()
+        return Response(
+            {"message": f"deleted successfully!"},
+            status=status.HTTP_204_NO_CONTENT,
+        )
 
     def put(self, request, pk, format=None):
-        try:
-            movie = Movie.objects.get(pk=pk)
-        except Movie.DoesNotExist:
-            raise Http404
+        movie = self.get_object(pk)
 
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
             serializer.update(movie, request.data)
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)

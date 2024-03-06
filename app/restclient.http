@@ -7,13 +7,13 @@ Content-Type: application/json
         "year": "1996"
 }
 
-# get all movie
+# get all movies
 GET http://localhost:8009/api/movies/
 
 # get single movie
 GET http://localhost:8009/api/movies/1
 
-# create a movie
+# update a movie
 PUT http://localhost:8009/api/movies/1
 Content-Type: application/json
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
         "year": "1996"
 }
 
-# get single movie
+# delete single movie
 DELETE http://localhost:8009/api/movies/1
 
 # get all moview
@@ -39,3 +39,22 @@ Content-Type: application/json
         "genre": "thriller",
         "year": "1991"
 }
+
+
+# get single movie
+GET http://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/1
+
+# get all movies
+GET http://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/
+
+# update a movie
+PUT http://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/1
+Content-Type: application/json
+{
+        "title": "Fargo",
+        "genre": "comedy",
+        "year": "1998"
+}
+
+# delete single movie
+DELETE http://serene-cliffs-97285-0f5b0c291a8d.herokuapp.com/api/movies/1
