@@ -40,9 +40,9 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_REFERRER_POLICY = "same-origin"
-    REST_FRAMEWORK = {
-        "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
-    }
+    # REST_FRAMEWORK = {
+    #     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
+    # }
 
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "drf_yasg",
     "movies",
 ]
 
@@ -108,7 +109,6 @@ DATABASES = {
 }
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-print(DATABASE_URL)
 db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500)
 DATABASES["default"].update(db_from_env)
 
