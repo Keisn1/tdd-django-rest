@@ -7,8 +7,23 @@ Content-Type: application/json
         "year": "1996"
 }
 
-# get all moview
+# get all movie
 GET http://localhost:8009/api/movies/
+
+# get single movie
+GET http://localhost:8009/api/movies/1
+
+# create a movie
+PUT http://localhost:8009/api/movies/1
+Content-Type: application/json
+{
+        "title": "Fargo",
+        "genre": "comedy",
+        "year": "1996"
+}
+
+# get single movie
+DELETE http://localhost:8009/api/movies/1
 
 # get all moview
 GET http://localhost:8009/api/movies/
